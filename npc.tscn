@@ -10,8 +10,11 @@ height = 178.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxcha"]
 radius = 189.264
 
-[node name="NPC" type="Node2D"]
+[node name="NPC" type="RigidBody2D"]
+disable_mode = 1
+gravity_scale = 0.0
 script = ExtResource("1_xxcha")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(121.5, 99)
@@ -29,5 +32,5 @@ position = Vector2(33, 33)
 position = Vector2(91, 71)
 shape = SubResource("CircleShape2D_xxcha")
 
-[connection signal="child_entered_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
