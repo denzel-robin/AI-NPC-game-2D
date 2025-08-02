@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vn47713plhft"]
+
+[ext_resource type="Texture2D" uid="uid://bt4myuwnq6fg" path="res://A_2D_pixel_art_castle_room_in_.jpeg" id="1_nri5j"]
+
+[node name="CastleRoom" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = ExtResource("1_nri5j")

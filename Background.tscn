@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dct4327c6cu6u"]
+
+[ext_resource type="Texture2D" uid="uid://bt4myuwnq6fg" path="res://A_2D_pixel_art_castle_room_in_.jpeg" id="1_l3thc"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="A2dPixelArtCastleRoomIn" type="Sprite2D" parent="."]
+position = Vector2(574.5, 324)
+scale = Vector2(1.49609, 1.26172)
+texture = ExtResource("1_l3thc")
