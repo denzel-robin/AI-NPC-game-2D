@@ -14,7 +14,6 @@ radius = 189.264
 disable_mode = 1
 gravity_scale = 0.0
 script = ExtResource("1_xxcha")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(121.5, 99)

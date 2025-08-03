@@ -1,19 +1,15 @@
 extends Control
 
-var current_lines = []
-var current_index = 0
+@onready var _speaker : Label = $VBoxContainer/Speaker
+@onready var _dialog : RichTextLabel = $VBoxContainer/Dialog
 
-@onready var dialogue_label = $Panel/Label
+func display_line(dialog : String, speaker : String = ""):
+	_speaker.visible = (speaker!="")
+	_speaker.text = speaker
+	_dialog.text = dialog
+	open()
 
-func start_dialogue(lines: Array):
-	current_lines = lines
-	current_index = 0
-	show()
-	show_next_line()
-
-func show_next_line():
-	if current_index < current_lines.size():
-		dialogue_label.text = current_lines[current_index]
-		current_index += 1
-	else:
-		hide() # End of conversation
+func open():
+	visible = true
+func close():
+	visible = false
