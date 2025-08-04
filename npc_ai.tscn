@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://df4lkqsy662oy"]
+
+[ext_resource type="Script" uid="uid://dayvhfr4fv8gn" path="res://npc_ai.gd" id="1_u1cne"]
+
+[node name="npc-ai" type="Node"]
+script = ExtResource("1_u1cne")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_request_completed"]

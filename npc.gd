@@ -12,8 +12,6 @@ func _process(delta):
 	if !player_in_range:
 		dialog_start = false
 
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player_in_range = true
 
