@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://gd85blkws8hj"]
+[gd_scene load_steps=5 format=3 uid="uid://gd85blkws8hj"]
 
 [ext_resource type="Texture2D" uid="uid://dpbmdabtwft8g" path="res://NPC.png" id="1_ideak"]
 [ext_resource type="Script" uid="uid://b3f5htiq0li40" path="res://npc.gd" id="1_xxcha"]
-[ext_resource type="PackedScene" uid="uid://df4lkqsy662oy" path="res://npc_ai.tscn" id="3_kh24r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ideak"]
 radius = 56.0
@@ -12,9 +11,11 @@ height = 178.0
 radius = 189.264
 
 [node name="NPC" type="RigidBody2D"]
+position = Vector2(946, 19)
 disable_mode = 1
 gravity_scale = 0.0
 script = ExtResource("1_xxcha")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(121.5, 99)
@@ -31,8 +32,6 @@ position = Vector2(33, 33)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(91, 71)
 shape = SubResource("CircleShape2D_xxcha")
-
-[node name="npc-ai" parent="." instance=ExtResource("3_kh24r")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,37 +1,59 @@
 extends Node
 
-func _ready():
+var api_file = preload("res://gitignore/npc-ai-api.gd")
+var api_inst = api_file.new()
+var api = api_inst.api
+
+var new_dialog = "I am here for the king."
+var dialog = ["Hello", "I am here for the king."]
+var history = ["Hmph. State yer business or scram."]
+
+func start():
 	if not $HTTPRequest.is_connected("request_completed", Callable(self, "_on_request_completed")):
 		$HTTPRequest.request_completed.connect(_on_request_completed)
 
+	send_request(new_dialog)
+
+
+func send_request(player_line: String):
 	var headers = [
-		"Authorization: Bearer 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",
+		"Authorization: Bearer " + api,
 		"Content-Type: application/json"
 	]
 
+	# Start conversation history with system prompt
+	var messages = [
+		{
+			"role": "system",
+			"content": "You are a grumpy medieval castle guard. Speak in short, blunt phrases. Stay in character, don't explain yourself."
+		}
+	]
+
+	# Build full conversation
+	for i in range(min(dialog.size(), history.size())):
+		messages.append({ "role": "user", "content": dialog[i] })
+		messages.append({ "role": "assistant", "content": history[i] })
+
+	# Add the new player dialog
+	messages.append({ "role": "user", "content": player_line })
+
 	var body = {
 		"model": "deepseek/deepseek-r1:free",
-		"messages": [
-			{
-				"role": "user",
-				"content": "What is the meaning of life?"
-			}
-		]
+		"messages": messages
 	}
 
 	var json_data = JSON.stringify(body)
-
-	# Send POST request
 	$HTTPRequest.request("https://openrouter.ai/api/v1/chat/completions", headers, HTTPClient.METHOD_POST, json_data)
 
 
 func _on_request_completed(result, response_code, headers, body):
-	print("Response Code:", response_code)
 	var text = body.get_string_from_utf8()
 	var json = JSON.parse_string(text)
 
 	if json:
-		var message = json["choices"][0]["message"]["content"]
+		var message = json["choices"][0]["message"]["content"].strip_edges()
+		dialog.append(new_dialog)
+		history.append(message)
 		print("AI says:", message)
 	else:
 		print("Failed to parse response")

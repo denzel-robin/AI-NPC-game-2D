@@ -6,15 +6,18 @@ extends RigidBody2D
 var player_in_range = false
 var dialog_start = false
 
+
 func _process(delta):
 	if player_in_range and Input.is_action_just_pressed("interact_key"):
 		dialog_start = true
-	if !player_in_range:
+	if !player_in_range or Input.is_action_just_pressed("exit"):
 		dialog_start = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	player_in_range = true
+	if body.name == 'Player':
+		player_in_range = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	player_in_range = false
+	if body.name == 'Player':
+		player_in_range = false
