@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c87s0nifn8p1v"]
+
+[ext_resource type="Script" uid="uid://kwtq2usa0eo4" path="res://warmup_ai.gd" id="1_ul1i5"]
+
+[node name="WarmupAI" type="Node"]
+script = ExtResource("1_ul1i5")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

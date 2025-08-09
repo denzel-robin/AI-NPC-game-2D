@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vn47713plhft"]
+[gd_scene load_steps=12 format=3 uid="uid://vn47713plhft"]
 
 [ext_resource type="Script" uid="uid://cvwfs1wdtj41u" path="res://castle_room.gd" id="1_1426b"]
 [ext_resource type="Texture2D" uid="uid://bt4myuwnq6fg" path="res://A_2D_pixel_art_castle_room_in_.jpeg" id="1_nri5j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://eyd5rms25arn" path="res://player.tscn" id="3_moi42"]
 [ext_resource type="PackedScene" uid="uid://bgs3uei4efmfk" path="res://dialog_box.tscn" id="4_moi42"]
 [ext_resource type="PackedScene" uid="uid://g8ac758lppbb" path="res://input_text.tscn" id="6_ektwp"]
+[ext_resource type="PackedScene" uid="uid://c87s0nifn8p1v" path="res://warmup_ai.tscn" id="7_1hklm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8xrs"]
 size = Vector2(1097.5, 112)
@@ -59,3 +60,5 @@ offset_right = 191.0
 offset_bottom = 578.0
 
 [node name="InputText" parent="." instance=ExtResource("6_ektwp")]
+
+[node name="WarmupAI" parent="." instance=ExtResource("7_1hklm")]

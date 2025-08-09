@@ -1,18 +1,21 @@
 extends Node
 
+@onready var dialogue : Control = $DialogBox
+
 var api_file = preload("res://gitignore/npc-ai-api.gd")
 var api_inst = api_file.new()
 var api = api_inst.api
 
-var new_dialog = "I am here for the king."
-var dialog = ["Hello", "I am here for the king."]
-var history = ["Hmph. State yer business or scram."]
+var new_dialog
+var dialog = []
+var history = []
 
-func start():
+
+func start(player_line : String):
 	if not $HTTPRequest.is_connected("request_completed", Callable(self, "_on_request_completed")):
 		$HTTPRequest.request_completed.connect(_on_request_completed)
-
-	send_request(new_dialog)
+	new_dialog = player_line
+	send_request(player_line)
 
 
 func send_request(player_line: String):
@@ -39,6 +42,7 @@ func send_request(player_line: String):
 
 	var body = {
 		"model": "deepseek/deepseek-r1:free",
+		#"model" : "google/gemma-3n-e2b-it:free",
 		"messages": messages
 	}
 
@@ -54,6 +58,6 @@ func _on_request_completed(result, response_code, headers, body):
 		var message = json["choices"][0]["message"]["content"].strip_edges()
 		dialog.append(new_dialog)
 		history.append(message)
-		print("AI says:", message)
+		dialogue.display_line(message,'guard')
 	else:
 		print("Failed to parse response")

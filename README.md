@@ -1,4 +1,5 @@
 # AI-NPC-game-2D
+## Version 1 is only a prototypy
 This is a 2D-game with AI NPCs
 Build something interesting using AI
 
@@ -9,29 +10,18 @@ A rpg game with an interactive AI NPC.
     - A man standing in middle of room.
     - You wake up at the center of the room.
 - Actions
-    - W,A,S,D
+    - arrow keys for movement
     - F to interact with the NPC(talk)
 - About NPC
-    - It response using AI
+    - It respond using AI
     - It can't move, only talk with with the character
     - The NPC remembers your conversation.
 - How to interact with NPC
     - Press F, you can type your conversation
 - To add to NPC
-    - It has an affinity bar. It's responses depend on the affinity of NPC towards you
+    - It has an affinity bar. It's responses depend on the affinity of NPC towards you. (This feature is not yet made.)
 
-Steps
-1) Build the game.
-1.1) Find all the requirements to build a game
-1.12) 2D or 3D? 2D for now.
-1.11) Godot as game engine?
-1.2) To be continued...
-2) Add AI
-3) Test them
-4) Make videos
-5) Post on LinkedIn and Github.(Maybe Reddit)
-
-Things I done:
+## My journey in creating the game
 1) Decided to try a demo
 2) Created a private github repository to save my progress
 3) Followed the steps written in the site.
@@ -50,3 +40,7 @@ Things I done:
 16) Created an npc-ai scene to connect ai to the npc(Not yet connected)
 17) Connected the npc-ai scene to an api in open-router
 18) deepssek_r1:free generating dialogues perfectly
+19) Added the input menu for player to type.
+20) The dialogues of NPC are appearing in the dialog box.
+21) Created a sceane to warm up the AI
+22) Added camera to the player
