@@ -85,5 +85,3 @@ shape = SubResource("CapsuleShape2D_bwjto")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2wuci")
 animation = &"idle"
-
-[node name="Camera2D" type="Camera2D" parent="."]
