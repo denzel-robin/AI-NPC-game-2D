@@ -1,13 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://df4lkqsy662oy"]
+[gd_scene load_steps=2 format=3 uid="uid://df4lkqsy662oy"]
 
 [ext_resource type="Script" uid="uid://dayvhfr4fv8gn" path="res://npc_ai.gd" id="1_u1cne"]
-[ext_resource type="PackedScene" uid="uid://bgs3uei4efmfk" path="res://dialog_box.tscn" id="2_a0vui"]
 
-[node name="npc-ai" type="Node"]
+[node name="NpcAi" type="Node"]
 script = ExtResource("1_u1cne")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
-
-[node name="DialogBox" parent="." instance=ExtResource("2_a0vui")]
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_request_completed"]

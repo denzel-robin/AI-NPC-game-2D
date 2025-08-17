@@ -1,32 +1,23 @@
 extends Control
 
-@onready var line_edit = $LineEdit
-@onready var npc_ai : Node = $"npc-ai"
+@onready var line_edit: LineEdit = $LineEdit
+
+signal text_submitted
+
+var user_input
 
 func _ready() -> void:
+	line_edit.text_submitted.connect(_on_text_submitted)
 	visible = false
 
-func start_chat():
-	open()
-
-func close_chat():
-	close()
-
-func _on_line_edit_text_submitted(new_text: String) -> void:
-	line_edit.clear()
-	line_edit.hide()
-	line_edit.release_focus()
-	visible = false
-	npc_ai.start(new_text)
-
-func open():
+func open_input():
 	visible = true
 	line_edit.grab_focus()
-	line_edit.show()
 
-func close():
-	if visible == true:
-		line_edit.clear()
-		line_edit.hide()
-		line_edit.release_focus()
-		visible = false
+func close_box():
+	visible = false
+
+func _on_text_submitted(new_text: String) -> void:
+	user_input = new_text
+	visible = false
+	emit_signal("text_submitted", user_input)

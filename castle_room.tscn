@@ -60,5 +60,6 @@ offset_right = 191.0
 offset_bottom = 578.0
 
 [node name="InputText" parent="." instance=ExtResource("6_ektwp")]
+anchors_preset = 15
 
 [node name="WarmupAI" parent="." instance=ExtResource("7_1hklm")]

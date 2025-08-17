@@ -1,6 +1,6 @@
 extends Node
 
-@onready var dialogue : Control = $DialogBox
+signal new_message
 
 var api_file = preload("res://gitignore/npc-ai-api.gd")
 var api_inst = api_file.new()
@@ -58,6 +58,7 @@ func _on_request_completed(result, response_code, headers, body):
 		var message = json["choices"][0]["message"]["content"].strip_edges()
 		dialog.append(new_dialog)
 		history.append(message)
-		dialogue.display_line(message,'guard')
+		emit_signal("new_message", message)
+		print(message)
 	else:
 		print("Failed to parse response")

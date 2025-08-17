@@ -1,37 +1,87 @@
-[gd_scene load_steps=5 format=3 uid="uid://gd85blkws8hj"]
+[gd_scene load_steps=13 format=3 uid="uid://gd85blkws8hj"]
 
-[ext_resource type="Texture2D" uid="uid://dpbmdabtwft8g" path="res://NPC.png" id="1_ideak"]
 [ext_resource type="Script" uid="uid://b3f5htiq0li40" path="res://npc.gd" id="1_xxcha"]
+[ext_resource type="PackedScene" uid="uid://g8ac758lppbb" path="res://input_text.tscn" id="3_bc6q4"]
+[ext_resource type="Texture2D" uid="uid://df6r0lciknx83" path="res://castle_guard_animation.png" id="3_kh24r"]
+[ext_resource type="PackedScene" uid="uid://bgs3uei4efmfk" path="res://dialog_box.tscn" id="3_ul7y6"]
+[ext_resource type="PackedScene" uid="uid://df4lkqsy662oy" path="res://npc_ai.tscn" id="4_ul7y6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ideak"]
-radius = 56.0
-height = 178.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul7y6"]
+atlas = ExtResource("3_kh24r")
+region = Rect2(80, 297, 249, 590)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xxcha"]
-radius = 189.264
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc6q4"]
+atlas = ExtResource("3_kh24r")
+region = Rect2(329, 297, 249, 590)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcvl2"]
+atlas = ExtResource("3_kh24r")
+region = Rect2(578, 297, 249, 590)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d61ma"]
+atlas = ExtResource("3_kh24r")
+region = Rect2(827, 297, 249, 590)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slxoh"]
+atlas = ExtResource("3_kh24r")
+region = Rect2(1076, 297, 249, 590)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l64hl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul7y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc6q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcvl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d61ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slxoh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+size = Vector2(142, 94)
 
 [node name="NPC" type="RigidBody2D"]
-position = Vector2(946, 19)
 disable_mode = 1
 gravity_scale = 0.0
 script = ExtResource("1_xxcha")
-metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(121.5, 99)
-scale = Vector2(0.292969, 0.371094)
-texture = ExtResource("1_ideak")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(124, 105)
-shape = SubResource("CapsuleShape2D_ideak")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.999985, 1.52588e-05)
+scale = Vector2(0.203, 0.192)
+sprite_frames = SubResource("SpriteFrames_l64hl")
+animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(33, 33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(91, 71)
-shape = SubResource("CircleShape2D_xxcha")
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_xxcha")
+
+[node name="InputText" parent="." instance=ExtResource("3_bc6q4")]
+offset_left = -74.0
+offset_top = 68.0
+offset_right = -74.0
+offset_bottom = 68.0
+
+[node name="NpcAi" parent="." instance=ExtResource("4_ul7y6")]
+
+[node name="DialogBox" parent="." instance=ExtResource("3_ul7y6")]
+offset_left = -92.0
+offset_top = -85.0
+offset_right = 110.0
+offset_bottom = -54.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

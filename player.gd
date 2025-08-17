@@ -1,6 +1,11 @@
 extends CharacterBody2D
 
 @export var speed = 80
+@export var gravity: float = 700
+
+func _physics_process(delta: float) -> void:
+	velocity.y += gravity * delta
+	move_and_slide()
 
 func _process(delta):
 	var input_vector = Vector2.ZERO
