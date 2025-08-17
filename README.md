@@ -44,3 +44,6 @@ A rpg game with an interactive AI NPC.
 20) The dialogues of NPC are appearing in the dialog box.
 21) Created a sceane to warm up the AI
 22) Added camera to the player
+23) Changed the map of the game.
+24) Added a sprite npc
+25) Restructures the nodes. Designed a proper structure
