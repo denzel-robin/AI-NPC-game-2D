@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgs3uei4efmfk"]
+[gd_scene load_steps=2 format=3 uid="uid://bgs3uei4efmfk"]
 
 [ext_resource type="Script" uid="uid://b2b20n3qw35ka" path="res://dialog_box.gd" id="1_hwgul"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ki1k"]
-bg_color = Color(0.6, 0.6, 0.6, 0.309804)
 
 [node name="DialogBox" type="Control"]
 layout_mode = 3
@@ -19,15 +16,6 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_hwgul")
 metadata/_edit_group_ = true
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1ki1k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

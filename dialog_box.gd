@@ -12,10 +12,9 @@ func display_line(dialog : String):
 
 func open():
 	visible = true
-	timer.start(3)
+	timer.start(5)
 func close():
 	visible = false
-
 
 func _on_timer_timeout() -> void:
 	print("Timeout")

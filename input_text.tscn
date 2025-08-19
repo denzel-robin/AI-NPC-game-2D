@@ -1,27 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://g8ac758lppbb"]
+[gd_scene load_steps=3 format=3 uid="uid://g8ac758lppbb"]
 
 [ext_resource type="Script" uid="uid://dymus7mj11vk6" path="res://input_text.gd" id="1_lwh8q"]
+[ext_resource type="FontFile" uid="uid://c07ogghi4djmp" path="res://ttf/JetBrainsMono-Regular.ttf" id="2_qcb33"]
 
 [node name="InputText" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 481.0
-offset_top = 309.0
-offset_right = -544.0
-offset_bottom = -360.0
+offset_left = 532.0
+offset_top = 506.0
+offset_right = -185.0
+offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lwh8q")
 metadata/_edit_group_ = true
 
 [node name="LineEdit" type="LineEdit" parent="."]
+layout_direction = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 136.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 3
+theme_override_fonts/font = ExtResource("2_qcb33")
+theme_override_font_sizes/font_size = 15
+text_direction = 1

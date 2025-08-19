@@ -70,10 +70,10 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_xxcha")
 
 [node name="InputText" parent="." instance=ExtResource("3_bc6q4")]
-offset_left = -74.0
-offset_top = 68.0
-offset_right = -74.0
-offset_bottom = 68.0
+offset_left = -105.0
+offset_top = 54.0
+offset_right = 125.0
+offset_bottom = 92.0
 
 [node name="NpcAi" parent="." instance=ExtResource("4_ul7y6")]
 
