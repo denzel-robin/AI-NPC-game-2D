@@ -1,7 +1,6 @@
 # AI-NPC-game-2D
-## Version 1 is only a prototypy
+## Version 1 is only a prototype
 This is a 2D-game with AI NPCs
-Build something interesting using AI
 
 A rpg game with an interactive AI NPC.
 - Map
@@ -39,11 +38,12 @@ A rpg game with an interactive AI NPC.
 15) Gave npc dialogs to test -> tested: Convo working fine (convo is 1D)
 16) Created an npc-ai scene to connect ai to the npc(Not yet connected)
 17) Connected the npc-ai scene to an api in open-router
-18) deepssek_r1:free generating dialogues perfectly
+18) deepseek_r1:free generating dialogues perfectly
 19) Added the input menu for player to type.
 20) The dialogues of NPC are appearing in the dialog box.
 21) Created a sceane to warm up the AI
 22) Added camera to the player
 23) Changed the map of the game.
 24) Added a sprite npc
-25) Restructures the nodes. Designed a proper structure
+25) Restructured the nodes. Designed a proper structure
+26) Fixed some bugs in typing input and npc responce
